@@ -1,18 +1,8 @@
-
-// testing
 const router = require('express').Router();
-// calling models here
-const withAuth = require('../../utils/auth');
+const userRoutes = require('./userRoutes');
+const postRoutes = require('./postRoutes');
 
-router.get('/', async (req, res) => {
-    try{
-        res.render('homepage', {
-            loggedIn: req.session.loggedIn
-        })
-    }
-    catch (err) {
-        res.status(500).json(err);
-    }
-})
+router.use('/users', userRoutes);
+router.use('/posts', postRoutes);
 
 module.exports = router;

@@ -12,10 +12,10 @@
 <body>
     <header>
         <nav>
-            <a>Home</a>
-            <a>Dashboard</a>
+            <a id="home-button" href="/">Home</a>
+            <a id="dashboard=button" href="/dashboard">Dashboard</a>
             {{#if loggedIn}}
-            <button id="logout">Logout</button>>
+            <button id="logout">Logout</button>
             {{else}}
             {{!-- REMINDER to set route /login for login page --}}
             <a id="login" href="/login">Login</a>
@@ -24,12 +24,12 @@
 
         <div>
             <h1>
-            {{#if currentPage === 'home'}}
+            {{!-- {{#if currentPage === 'home'}}
             The Tech Blog
             {{/if}}
             {{#if currentPage === 'dashboard'}}
             Your Dashboard
-            {{/if}}
+            {{/if}} --}}
             </h1>
         </div>
     </header>
@@ -42,7 +42,7 @@
 
     </footer>
     {{!-- REMINDER to set script.js file here --}}
-    <script></script>
+    <script src="/js/script/js"></script>
 </body>
 
 </html>
