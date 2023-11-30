@@ -1,4 +1,26 @@
 a {
-    font-size: large;
-    margin-right: 5px;
+    margin-right: 2%
+}
+
+.header-box {
+    background-color: bisque;
+    min-width: 350px;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 15px 15px;
+    /* REMINDER TO CHECK BACK HERE */
+    margin-top: -30px;
+}
+
+.padding-4 {
+    padding: 4px;
+}
+
+.top-left-right-border-radius {
+    border-radius: 8px 8px 0 0;
+}
+
+.custom-margin-top-2 {
+    margin-top: 20px;
 }

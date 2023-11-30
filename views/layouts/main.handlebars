@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
     <link rel="stylesheet" href="/css/reset.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
+    <header class="has-background-dark">
+        <nav class="navbar-item is-arrowless">
             <a id="home-button" href="/">Home</a>
-            <a id="dashboard=button" href="/dashboard">Dashboard</a>
+            <a id="dashboard-button" href="/dashboard">Dashboard</a>
             {{#if loggedIn}}
             <button id="logout">Logout</button>
             {{else}}
@@ -21,17 +23,6 @@
             <a id="login" href="/login">Login</a>
             {{/if}}
         </nav>
-
-        <div>
-            <h1>
-            {{!-- {{#if currentPage === 'home'}}
-            The Tech Blog
-            {{/if}}
-            {{#if currentPage === 'dashboard'}}
-            Your Dashboard
-            {{/if}} --}}
-            </h1>
-        </div>
     </header>
 
     <main>

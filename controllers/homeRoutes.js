@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             posts,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         })
     }
     catch (err) {
@@ -30,6 +30,15 @@ router.get('/', async (req, res) => {
 router.get('/login', async (req, res) => {
     try {
         res.render('login');
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/signup', async (req, res) => {
+    try {
+        res.render('signup');
     }
     catch (err) {
         res.status(500).json(err);
@@ -47,7 +56,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
         res.render('dashboard', {
             ...user,
-            logged_in: true
+            logged_in: true,
         });
     }
     catch (err) {
@@ -70,7 +79,7 @@ router.get('/post/:id', async (req, res) => {
 
         res.render('post', {
             ...post,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         });
     }
     catch (err) {
