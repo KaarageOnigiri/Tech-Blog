@@ -1,2 +1,60 @@
 {{!-- /post/:id endpoint  --}}
-<h1>post</h1>
+<div class="has-background-dark section">
+    <div class="header-box">
+        <h1 class="title is-1">The Tech Blog</h1>
+    </div>
+</div>
+
+<div class="custom-m-30 single-comment-box">
+    <div class="has-background-dark columns">
+        <h2 data="{{id}}" class="blogpost-title title is-4 has-text-grey-lighter padding-10 custom-margin-left-20 column is-9 custom-inline">{{title}}</h2>
+        <p class="column is-3 custom-text-right custom-inline">Posted by <span class="custom-text-light-blue">{{user.name}}</span> on {{format_date createdAt}}</p>
+    </div>
+
+    <div>
+        <p>{{content}}</p>
+    </div>
+</div>
+
+{{#if logged_in}}
+<div class="custom-text-box">
+    <div class="media">
+        <div class="media-content">
+            <div class="field">
+                <p class="control">
+                    <textarea class="textarea" placeholder="Posted by {{user.name}}"></textarea>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-display-flex">
+        <button for="textbox" class="custom-post-button button is-info">Comment</button>
+    </div>
+</div>
+{{/if}}
+
+{{!-- {{#each comments}}
+<section class="comment">
+    <p>{{comment}}</p>
+    <p>Posted by <span class="custom-text-light-blue">{{user.name}}</span> on {{format_date createdAt}}</p>
+</section>
+{{/each}} --}}
+
+{{!-- 
+     const postData = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name']
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User, attributes: ['name']
+                        }
+                    ]
+                }
+            ]
+        }); --}}
