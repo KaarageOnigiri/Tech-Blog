@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, BlogPost} = require('../models');
+const {User, BlogPost, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -47,6 +47,7 @@ router.get('/signup', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
+        console.log(req.session);
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
             include: [{model: BlogPost}]
@@ -54,15 +55,29 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
         const user = userData.get({plain: true});
 
+        console.log(user);
+
         res.render('dashboard', {
             ...user,
-            logged_in: true,
+            logged_in: req.session.logged_in,
+        });
+    }
+    catch (err) {
+        console.log('dashboard err: ', err)
+        res.status(500).json(err);
+    }
+});
+
+router.get('/new-dashboard', withAuth, async (req, res) => {
+    try {
+        res.render('new-dashboard', {
+            logged_in: req.session.logged_in,
         });
     }
     catch (err) {
         res.status(500).json(err);
     }
-});
+})
 
 router.get('/post/:id', async (req, res) => {
     try {
@@ -82,8 +97,10 @@ router.get('/post/:id', async (req, res) => {
                 }
             ]
         });
-
+        
         const post = postData.get({plain: true});
+
+        console.log(post)
 
         res.render('post', {
             ...post,
@@ -91,6 +108,7 @@ router.get('/post/:id', async (req, res) => {
         });
     }
     catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });

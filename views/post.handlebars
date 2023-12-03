@@ -17,44 +17,30 @@
 </div>
 
 {{#if logged_in}}
-<div class="custom-text-box">
+<form id="add-comment-form" class="custom-text-box">
     <div class="media">
         <div class="media-content">
             <div class="field">
                 <p class="control">
-                    <textarea class="textarea" placeholder="Posted by {{user.name}}"></textarea>
+                    <textarea id="typed-comment" class="textarea" placeholder="Posted by {{user.name}}"></textarea>
                 </p>
             </div>
         </div>
     </div>
 
     <div class="custom-display-flex">
-        <button for="textbox" class="custom-post-button button is-info">Comment</button>
+        <button id="post-comment-textbox" for="textbox" class="custom-post-button button is-info">Comment</button>
     </div>
-</div>
+</form>
 {{/if}}
 
-{{!-- {{#each comments}}
-<section class="comment">
-    <p>{{comment}}</p>
-    <p>Posted by <span class="custom-text-light-blue">{{user.name}}</span> on {{format_date createdAt}}</p>
+{{#each comments}}
+<section class="comment box custom-comment-box">
+    <p>{{comment_text}}</p>
+    <p class="custom-comment-name-date">Posted by <span class="custom-text-light-blue">{{user.name}}</span> on {{format_date createdAt}}</p>
 </section>
-{{/each}} --}}
+{{/each}} 
 
-{{!-- 
-     const postData = await BlogPost.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['name']
-                },
-                {
-                    model: Comment,
-                    include: [
-                        {
-                            model: User, attributes: ['name']
-                        }
-                    ]
-                }
-            ]
-        }); --}}
+{{#if logged_in}}
+<script src="/js/post.js"></script>
+{{/if}}

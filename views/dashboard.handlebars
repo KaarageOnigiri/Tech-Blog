@@ -4,8 +4,24 @@
     </div>
 </div>
 
-{{#each posts as |post|}}
-<div>
+<section class="custom-add-comment-button">
+    <div id="add-new-post" class="button">
+        <h1>+</h1>
+        <p>New Post</p>
+    </div>
+</section>
 
+{{#each blogposts as |post|}}
+<div class="custom-m-30 comment-box">
+    <div class="has-background-dark columns">
+        <h2 data="{{post.id}}" class="blogpost-title title is-4 has-text-grey-lighter padding-10 custom-margin-left-20 column is-9 custom-inline">{{post.title}}</h2>
+        <p class="column is-3 custom-text-right custom-inline">Posted by <span class="custom-text-light-blue">{{user.name}}</span> on {{format_date post.createdAt}}</p>
+    </div>
+
+    <div>
+        <p>{{post.content}}</p>
+    </div>
 </div>
 {{/each}}
+
+<script src="/js/dashboard.js"></script>

@@ -16,11 +16,10 @@
         <nav class="navbar-item is-arrowless">
             <a id="home-button" href="/">Home</a>
             <a id="dashboard-button" href="/dashboard">Dashboard</a>
-            {{#if logged-in}}
-            <button id="logout">Logout</button>
+            {{#if logged_in}}
+            <button id="logout-button" class="custom-logout-color button">Logout</button>
             {{else}}
-            {{!-- REMINDER to set route /login for login page --}}
-            <a id="login" href="/login">Login</a>
+            <a id="login-button" class="button" href="/login">Login</a>
             {{/if}}
         </nav>
     </header>
@@ -33,6 +32,9 @@
 
     </footer>
     {{!-- REMINDER to set script.js file here --}}
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
     <script src="/js/script.js"></script>
 </body>
 

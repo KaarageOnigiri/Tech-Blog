@@ -2,6 +2,14 @@ a {
     margin-right: 2%
 }
 
+.custom-logout-color {
+    color: white;
+    background-color: rgb(235, 140, 140);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .header-box {
     background-color: bisque;
     min-width: 350px;
@@ -89,6 +97,45 @@ a {
     align-items: flex-end;
     margin-right: 20px;
     margin-top: 10px;
+}
+
+.custom-comment-name-date {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    border-top: solid 1px black;
+}
+
+.custom-comment-box {
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.custom-add-comment-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.custom-add-comment-button-modifier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-add-comment-form {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-create-new-post-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 /* @media only screen and (max-width: 800px) {
