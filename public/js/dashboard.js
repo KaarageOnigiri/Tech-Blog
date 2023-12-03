@@ -1,4 +1,6 @@
 const title = document.querySelectorAll(".blogpost-title");
+const editBtn = document.querySelector("#edit-button");
+const deleteBtn = document.querySelector("delete-button");
 
 const redirectToPostID = async (event) => {
     event.preventDefault();
@@ -15,6 +17,16 @@ const addNewPost = async (event) => {
     document.location.replace('/new-dashboard');
 }
 
-document.querySelector('#add-new-post').addEventListener('click', addNewPost);
+const editPost = (event) => {
+    event.preventDefault();
+}
 
+const deletePost = (event) => {
+    event.preventDefault();
+}
+
+editBtn.addEventListener('click', editPost);
+deleteBtn.addEventListener('click', deletePost);
+document.querySelector('#add-new-post').addEventListener('click', addNewPost);
 title.forEach((num) => num.addEventListener('click', redirectToPostID));
+

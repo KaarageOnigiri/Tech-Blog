@@ -17,6 +17,25 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await BlogPost.update({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id
+            }
+        });
+
+        if (!postData) {
+            res.status(404).json({message: 'Error, no post found with this id!'});
+            return;
+        }
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postData = await BlogPost.destroy({
@@ -27,7 +46,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         });
 
         if (!postData) {
-            res.status(404).json({message: 'No post found with this id!'});
+            res.status(404).json({message: 'Error, no post found with this id!'});
             return;
         }
 

@@ -138,6 +138,16 @@ a {
     justify-content: flex-end;
 }
 
+.custom-dashboard-posts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.custom-dashboard-post-left {
+    width: 800%;
+}
+
 /* @media only screen and (max-width: 800px) {
     .custom-text-right {
         text-align: right;
