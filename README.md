@@ -14,4 +14,4 @@ When the user first enters the site, they can navigate around to look at the pos
 <img src="./Images/screenshot 4.PNG" alt="Screenshot 4"/>
 
 ## Link to the website
-Deployed link: 
+Deployed link: https://villy-tech-blog-4630a2a42026.herokuapp.com/
