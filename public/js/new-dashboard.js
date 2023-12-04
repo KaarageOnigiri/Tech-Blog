@@ -18,7 +18,7 @@ const createNewPost = async (event) => {
             body: JSON.stringify({title, content}),
             headers: {'Content-Type': 'application/json'}
         });
-
+        
         if (response.ok) {
             document.location.replace('/dashboard');
         }

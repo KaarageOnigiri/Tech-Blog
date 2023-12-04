@@ -60,6 +60,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.render('dashboard', {
             ...user,
             logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     }
     catch (err) {
@@ -105,6 +106,7 @@ router.get('/post/:id', async (req, res) => {
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     }
     catch (err) {
@@ -112,5 +114,39 @@ router.get('/post/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/edit-post/:id', async (req, res) => {
+    try {
+        const postData = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User, 
+                    attributes: ['name']
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['name']
+                        }
+                    ]
+                }
+            ]
+        })
+
+        const post = postData.get({plain: true});
+
+        res.render('edit-post', {
+            ...post,
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
+        })
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 
 module.exports = router;
