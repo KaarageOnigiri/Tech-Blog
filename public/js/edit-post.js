@@ -21,7 +21,7 @@ const editPost = async (event) => {
         });
         console.log(response);
         if (response.ok) {
-            document.location.replace(`/post/${id}`);
+            document.location.replace(`/edit-post/${id}`);
         }
         else {
             console.log(response.statusText);

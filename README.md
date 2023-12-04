@@ -15,4 +15,3 @@ When the user first enters the site, they can navigate around to look at the pos
 
 ## Link to the website
 Deployed link: 
-<!-- Deployed link: https://kaarageonigiri.github.io/Tech-Blog/ -->

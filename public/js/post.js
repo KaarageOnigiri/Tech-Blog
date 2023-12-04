@@ -4,6 +4,12 @@ const postComment = async (event) => {
     const post_id = parseInt(document.querySelector('.blogpost-title').getAttribute('data'));
     const comment_text = document.querySelector('#typed-comment').value.trim();
     console.log(post_id, comment_text);
+
+    if (!comment_text) {
+        alert('Please fill in text.');
+        return;
+    }
+
     const response = await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({comment_text, blogpost_id: post_id}),
